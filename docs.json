@@ -1,0 +1,76 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "DockGuard.start",
+        "desc": "Start monitoring mouse movement and prevent the Dock from moving to another monitor.",
+        "doc": "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
+        "file": "DockGuard.spoon/init.lua",
+        "lineno": "24",
+        "name": "start",
+        "signature": "DockGuard.start",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "DockGuard.stop",
+        "desc": "Stop monitoring mouse movement and allow the Dock to move between monitors.",
+        "doc": "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
+        "file": "DockGuard.spoon/init.lua",
+        "lineno": "58",
+        "name": "stop",
+        "signature": "DockGuard.stop",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "DockGuard.edgeTriggerMargin",
+        "desc": "How many pixels from the bottom edge the cursor must approach to trigger the Dock movement prevention. Default: 1",
+        "doc": "The margin (in pixels) from the bottom edge of the main screen that triggers the fake mouse event to keep the Dock fixed on the main monitor. Increase this value if the default does not work on your macOS version.",
+        "file": "DockGuard.spoon/init.lua",
+        "lineno": "14",
+        "name": "edgeTriggerMargin",
+        "signature": "DockGuard.edgeTriggerMargin",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DockGuard.mouseNudgeDistance",
+        "desc": "How many pixels the cursor will be nudged upward when triggered. Default: 1",
+        "doc": "The distance (in pixels) to nudge the mouse upward when the Dock movement prevention is triggered. Increase this value if the Dock is still moving to another monitor.",
+        "file": "DockGuard.spoon/init.lua",
+        "lineno": "20",
+        "name": "mouseNudgeDistance",
+        "signature": "DockGuard.mouseNudgeDistance",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DockGuard.watcherRestartDelay",
+        "desc": "Delay (in seconds) before restarting the watcher after nudging the cursor. Default: 0.1",
+        "doc": "The delay (in seconds) before restarting the mouse movement watcher after the cursor is nudged. Increase this value if the Dock is still able to move to another monitor.",
+        "file": "DockGuard.spoon/init.lua",
+        "lineno": "17",
+        "name": "watcherRestartDelay",
+        "signature": "DockGuard.watcherRestartDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Prevents the macOS Dock from moving to another monitor by nudging the mouse cursor upward when it nears the bottom edge of the main screen.",
+    "doc": "DockGuard.spoon keeps the macOS Dock fixed on the main monitor. When the mouse cursor approaches the bottom edge of the main screen, the cursor is nudged upward by a small amount, preventing the Dock from moving to another monitor. If the default settings do not work on your macOS version, you can adjust the parameters for more reliable protection.",
+    "items": [],
+    "name": "DockGuard",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]
