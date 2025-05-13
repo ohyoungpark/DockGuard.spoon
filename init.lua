@@ -33,6 +33,9 @@ function obj:start()
   mouseMoveWatcher = hs.eventtap.new({ hs.eventtap.event.types.mouseMoved }, function(event)
     local pos = event:location()
     local screen = hs.mouse.getCurrentScreen()
+    if not screen then
+      return false
+    end
     local frame = screen:fullFrame()
     local relativeY = pos.y - frame.y
     local bottomY = frame.h
