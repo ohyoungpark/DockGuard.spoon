@@ -1,76 +1,123 @@
 [
   {
-    "Command": [],
-    "Constant": [],
-    "Constructor": [],
-    "Deprecated": [],
-    "Field": [],
-    "Function": [],
-    "Method": [
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Prevent the macOS Dock from moving from the main monitor (the one with the menu bar) to another monitor.",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Prevent the macOS Dock from moving from the main monitor (the one with the menu bar) to another monitor.\nWhen the mouse cursor approaches the bottom edge of a screen, DockGuard nudges the cursor upward to prevent the Dock from moving.\nThis is almost unnoticeable in normal use.\n\nUsage example in your init.lua:\nhs.loadSpoon(\"DockGuard\")\nspoon.DockGuard:start()\n\nThe default config is as follows:\n    edgeTriggerMargin = 1,        -- Number of pixels from the bottom edge to trigger the nudge\n    mouseNudgeDistance = 1,       -- Number of pixels to nudge the cursor upward\n    watcherRestartDelay = 0.1,    -- Delay (in seconds) before restarting the watcher after nudging\n\nYou can override these defaults before calling :start(), for example:\nhs.loadSpoon(\"DockGuard\")\nspoon.DockGuard.edgeTriggerMargin = 5 -- Trigger within 5px of the bottom edge\nspoon.DockGuard.mouseNudgeDistance = 2 -- Nudge cursor up by 2px\nspoon.DockGuard.watcherRestartDelay = 0.2 -- Restart watcher after 0.2s\nspoon.DockGuard:start()\nNote: If 'Automatically hide and show the Dock' is enabled, this plugin may not work as expected.",
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
       {
-        "def": "DockGuard.start",
-        "desc": "Start monitoring mouse movement and prevent the Dock from moving to another monitor.",
-        "doc": "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
-        "file": "DockGuard.spoon/init.lua",
-        "lineno": "24",
-        "name": "start",
-        "signature": "DockGuard.start",
-        "stripped_doc": "",
-        "type": "Method"
+        "doc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:start()",
+        "desc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor."
       },
       {
-        "def": "DockGuard.stop",
-        "desc": "Stop monitoring mouse movement and allow the Dock to move between monitors.",
-        "doc": "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
-        "file": "DockGuard.spoon/init.lua",
-        "lineno": "58",
-        "name": "stop",
-        "signature": "DockGuard.stop",
-        "stripped_doc": "",
-        "type": "Method"
+        "doc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:stop()",
+        "desc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor."
       }
     ],
-    "Variable": [
+    "Method" : [
       {
-        "def": "DockGuard.edgeTriggerMargin",
-        "desc": "How many pixels from the bottom edge the cursor must approach to trigger the Dock movement prevention. Default: 1",
-        "doc": "The margin (in pixels) from the bottom edge of the main screen that triggers the fake mouse event to keep the Dock fixed on the main monitor. Increase this value if the default does not work on your macOS version.",
-        "file": "DockGuard.spoon/init.lua",
-        "lineno": "14",
-        "name": "edgeTriggerMargin",
-        "signature": "DockGuard.edgeTriggerMargin",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:start()",
+        "desc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor."
       },
       {
-        "def": "DockGuard.mouseNudgeDistance",
-        "desc": "How many pixels the cursor will be nudged upward when triggered. Default: 1",
-        "doc": "The distance (in pixels) to nudge the mouse upward when the Dock movement prevention is triggered. Increase this value if the Dock is still moving to another monitor.",
-        "file": "DockGuard.spoon/init.lua",
-        "lineno": "20",
-        "name": "mouseNudgeDistance",
-        "signature": "DockGuard.mouseNudgeDistance",
-        "stripped_doc": "",
-        "type": "Variable"
-      },
-      {
-        "def": "DockGuard.watcherRestartDelay",
-        "desc": "Delay (in seconds) before restarting the watcher after nudging the cursor. Default: 0.1",
-        "doc": "The delay (in seconds) before restarting the mouse movement watcher after the cursor is nudged. Increase this value if the Dock is still able to move to another monitor.",
-        "file": "DockGuard.spoon/init.lua",
-        "lineno": "17",
-        "name": "watcherRestartDelay",
-        "signature": "DockGuard.watcherRestartDelay",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:stop()",
+        "desc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor."
       }
     ],
-    "desc": "Prevents the macOS Dock from moving to another monitor by nudging the mouse cursor upward when it nears the bottom edge of the main screen.",
-    "doc": "DockGuard.spoon keeps the macOS Dock fixed on the main monitor. When the mouse cursor approaches the bottom edge of the main screen, the cursor is nudged upward by a small amount, preventing the Dock from moving to another monitor. If the default settings do not work on your macOS version, you can adjust the parameters for more reliable protection.",
-    "items": [],
-    "name": "DockGuard",
-    "stripped_doc": "",
-    "submodules": [],
-    "type": "Module"
+    "name" : "DockGuard"
   }
 ]

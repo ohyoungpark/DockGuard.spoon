@@ -1,32 +1,46 @@
 --- === DockGuard ===
 ---
---- Prevents the macOS Dock from moving to another monitor by nudging the mouse cursor upward when it nears the bottom edge of the main screen.
+--- Prevent the macOS Dock from moving from the main monitor (the one with the menu bar) to another monitor.
+--- When the mouse cursor approaches the bottom edge of a screen, DockGuard nudges the cursor upward to prevent the Dock from moving.
+--- This is almost unnoticeable in normal use.
 ---
---- Author: Ohyoung Park
---- Homepage: https://github.com/ohyoungpark/DockGuard.spoon
---- License: The Unlicense
+--- Usage example in your init.lua:
+--- hs.loadSpoon("DockGuard")
+--- spoon.DockGuard:start()
+---
+--- The default config is as follows:
+---     edgeTriggerMargin = 1,        -- Number of pixels from the bottom edge to trigger the nudge
+---     mouseNudgeDistance = 1,       -- Number of pixels to nudge the cursor upward
+---     watcherRestartDelay = 0.1,    -- Delay (in seconds) before restarting the watcher after nudging
+---
+--- You can override these defaults before calling :start(), for example:
+--- hs.loadSpoon("DockGuard")
+--- spoon.DockGuard.edgeTriggerMargin = 5 -- Trigger within 5px of the bottom edge
+--- spoon.DockGuard.mouseNudgeDistance = 2 -- Nudge cursor up by 2px
+--- spoon.DockGuard.watcherRestartDelay = 0.2 -- Restart watcher after 0.2s
+--- spoon.DockGuard:start()
+--- Note: If 'Automatically hide and show the Dock' is enabled, this plugin may not work as expected.
+
 
 local obj = {}
 obj.__index = obj
 
 obj.name = "DockGuard"
 obj.version = "0.1"
+obj.author = "Ohyoung Park <ohyoungpark@mail.com>"
+obj.homepage = "https://github.com/ohyoungpark/DockGuard.spoon"
+obj.license = "The Unlicense - https://unlicense.org/"
 
---- How many pixels from the bottom edge the cursor must approach to trigger the Dock movement prevention. Default: 1
---- The margin (in pixels) from the bottom edge of the main screen that triggers the fake mouse event to keep the Dock fixed on the main monitor. Increase this value if the default does not work on your macOS version.
 obj.edgeTriggerMargin = 1
-
---- Delay (in seconds) before restarting the watcher after nudging the cursor. Default: 0.1
---- The delay (in seconds) before restarting the mouse movement watcher after the cursor is nudged. Increase this value if the Dock is still able to move to another monitor.
 obj.watcherRestartDelay = 0.1
-
---- How many pixels the cursor will be nudged upward when triggered. Default: 1
---- The distance (in pixels) to nudge the mouse upward when the Dock movement prevention is triggered. Increase this value if the Dock is still moving to another monitor.
 obj.mouseNudgeDistance = 1
 
----
---- Starts monitoring mouse movement and prevent the Dock from moving to another monitor.
+--- DockGuard:start()
+--- Method
 --- Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.
+---
+--- Parameters:
+---  * None
 function obj:start()
   local mouseMoveWatcher = nil
 
@@ -54,9 +68,12 @@ function obj:start()
   self._mouseMoveWatcher = mouseMoveWatcher
 end
 
----
---- Stops monitoring mouse movement and allows the Dock to move between monitors.
+--- DockGuard:stop()
+--- Method
 --- Stops monitoring mouse movement and allows the Dock to move to another monitor.
+---
+--- Parameters:
+---  * None
 function obj:stop()
   if self._mouseMoveWatcher then
     self._mouseMoveWatcher:stop()
